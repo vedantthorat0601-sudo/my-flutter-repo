@@ -1,6 +1,6 @@
-# application_file
+# my-flutter-repo
 
-A new Flutter project.
+This repository is for demonstration purpose.
 
 ## Getting Started
 
