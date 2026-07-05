@@ -8,12 +8,12 @@ class StudentDashboardPage extends StatefulWidget {
 }
 
 final List<Map<String, String>> subjects = [
-  {"subject": "Flutter", "teacher": "Mr. Sharma"},
-  {"subject": "Dart", "teacher": "Mrs. Patel"},
-  {"subject": "Firebase", "teacher": "Mr. Khan"},
-  {"subject": "Git & GitHub", "teacher": "Mrs. Singh"},
-  {"subject": "REST API", "teacher": "Mr. Joshi"},
-];
+      {"subject": "Mobile App Development", "teacher": "Prof. Alan Turing"},
+      {"subject": "Cloud Computing", "teacher": "Dr. Grace Hopper"},
+      {"subject": "UI/UX Design", "teacher": "Prof. Dieter Rams"},
+       {"subject": "UI/UX Design", "teacher": "Mr. A.P. Roy"},
+        {"subject": "UI/UX Design", "teacher": "Prof. John Wich"},
+    ];
 final List<String> skills = [
   "Flutter",
   "Dart",
@@ -71,368 +71,285 @@ class _HomePageState extends State<StudentDashboardPage> {
         ),
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // 1. Welcome Card Container
             Container(
-              width: 200,
-              margin: const EdgeInsets.all(20),
-              padding: const EdgeInsets.all(20),
-
+              width: double.infinity,
+              margin: const EdgeInsets.only(bottom: 16),
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
               decoration: BoxDecoration(
-                color: Colors.white12,
-                borderRadius: BorderRadius.circular(20),
-                 boxShadow: [
-                  BoxShadow(
-                    color: Colors.pinkAccent,
-                    blurRadius:55,
-                    blurStyle: BlurStyle.inner,
-                    offset: const Offset(0, 0),
-                  ),
-                ],
-              ),
-
-              child: const FittedBox(
-                child: Text(
-                  " Welcome Vedant!",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 3,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 20,),
-            Container(
-              margin: const EdgeInsets.all(20),
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.white12,
+                color: Colors.pink.shade50,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.pinkAccent,
-                    blurRadius: 55,
-                    blurStyle: BlurStyle.inner,
-                    offset: const Offset(0, 0),
+                    blurRadius: 30,
+                    blurStyle: BlurStyle.normal,
+                    offset: const Offset(0, 8),
                   ),
                 ],
               ),
+              child: const Center(
+                child: FittedBox(
+                  child: Text(
+                    " Welcome Back, Vedant! ",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.pinkAccent,
+                    ),
+                  ),
+                ),
+              ),
+            ),
 
+            // 2. Profile Card Container
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(bottom: 24),
+              padding: const EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                color: Colors.pinkAccent,
+                borderRadius: BorderRadius.circular(24),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.pinkAccent,
+                    blurRadius: 25,
+                    blurStyle: BlurStyle.normal,
+                    offset: const Offset(0, 12),
+                  ),
+                ],
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Profile Image
                   CircleAvatar(
-                    radius: 55,
-                    backgroundImage: AssetImage("assets/icons/pngwing.com.png"),
+                    radius: 50,
+                    backgroundColor: Colors.white,
+                    child: CircleAvatar(
+                      radius: 47,
+                      backgroundImage: const AssetImage("assets/icons/pngwing.com.png"),
+                      backgroundColor: Colors.pink.shade100,
+                    ),
                   ),
-
-                  const SizedBox(height: 15),
-
-                  // Student Name
-                  FittedBox(
+                  const SizedBox(height: 16),
+                  const FittedBox(
                     child: Text(
                       "Vedant Thorat",
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.yellowAccent,
+                        color: Colors.white,
+                        letterSpacing: 0.5,
                       ),
                     ),
                   ),
-
-                  const SizedBox(height: 8),
-
-                  // Course Name
+                  const SizedBox(height: 6),
                   FittedBox(
                     child: Text(
                       "Course: Mobile Application Development",
                       style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500
-                      ),
-                    ),
-                    
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 14),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.assignment,
-                              size: 35,
-                              color: Colors.blue,
-                            ),
-
-                            SizedBox(height: 10),
-
-                            Text("Assignments"),
-
-                            SizedBox(height: 5),
-
-                            Text(
-                              "10",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(width: 10),
-
-                  Expanded(
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.calendar_month,
-                              size: 35,
-                              color: Colors.green,
-                            ),
-
-                            SizedBox(height: 10),
-
-                            Text("Attendance"),
-
-                            SizedBox(height: 5),
-
-                            Text(
-                              "95%",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(width: 10),
-
-                  Expanded(
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.folder_copy,
-                              size: 35,
-                              color: Colors.orange,
-                            ),
-
-                            SizedBox(height: 10),
-
-                            Text("My Projects"),
-
-                            SizedBox(height: 5),
-
-                            Text(
-                              "5",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(width: 10),
-
-                  Expanded(
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Icon(Icons.star, size: 35, color: Colors.purple),
-
-                            SizedBox(height: 10),
-
-                            Text("My Marks"),
-
-                            SizedBox(height: 5),
-
-                            Text(
-                              "89%",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
+                        fontSize: 15,
+                        color: Colors.pink.shade50,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            Align(
-              alignment: Alignment.centerLeft,
+
+            // 3. Stats Grid (Row of Cards)
+            Row(
+              children: [
+                _buildStatCard("Assignments", "10", Icons.assignment, Colors.blue),
+                const SizedBox(width: 8),
+                _buildStatCard("Attendance", "95%", Icons.calendar_month, Colors.green),
+                const SizedBox(width: 8),
+                _buildStatCard("My Projects", "5", Icons.folder_copy, Colors.orange),
+                const SizedBox(width: 8),
+                _buildStatCard("My Marks", "89%", Icons.star, Colors.purple),
+              ],
+            ),
+            const SizedBox(height: 28),
+
+            // 4. Subjects Section
+            const Padding(
+              padding: EdgeInsets.only(left: 4, bottom: 12),
               child: Text(
                 "My Subjects",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black87),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-
-              child: ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: subjects.length,
-
-                itemBuilder: (context, index) {
-                  return Card(
-                    margin: const EdgeInsets.only(bottom: 12),
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-
-                      child: Row(
-                        children: [
-                          // Subject Icon
-                          const Icon(
-                            Icons.menu_book,
-                            color: Colors.deepOrange,
-                            size: 30,
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: subjects.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  elevation: 0,
+                  margin: const EdgeInsets.only(bottom: 12),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.pink.shade50, width: 1),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: Colors.pink.shade50,
+                            borderRadius: BorderRadius.circular(12),
                           ),
-
-                          const SizedBox(width: 15),
-
-                          // Subject Name & Teacher Name
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  subjects[index]["subject"]!,
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                          child: const Icon(
+                            Icons.menu_book_rounded,
+                            color: Colors.pinkAccent,
+                            size: 26,
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                subjects[index]["subject"]!,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black87,
                                 ),
-
-                                const SizedBox(height: 5),
-
-                                Text(
-                                  subjects[index]["teacher"]!,
-                                  style: TextStyle(
-                                    color: Colors.grey[600],
-                                    fontSize: 14,
-                                  ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                subjects[index]["teacher"]!,
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 13,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-
-                          // Arrow Icon
-                          const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 18,
-                            color: Colors.grey,
-                          ),
-                        ],
-                      ),
+                        ),
+                        const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 16,
+                          color: Colors.black38,
+                        ),
+                      ],
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
-            Align(
-              alignment: Alignment.centerLeft,
+            const SizedBox(height: 20),
+
+            // 5. Skills Section
+            const Padding(
+              padding: EdgeInsets.only(left: 4, bottom: 12),
               child: Text(
                 "My Skills",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black87),
               ),
             ),
-            SizedBox(height: 20),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-
-                itemCount: skills.length,
-
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 2.5,
-                ),
-
-                itemBuilder: (context, index) {
-                  return Card(
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(12),
-                      onTap: () {
-                        print(skills[index]);
-                      },
-
-                      child: Center(
-                        child: Text(
-                          skills[index],
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: skills.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 2.3,
+              ),
+              itemBuilder: (context, index) {
+                return Card(
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.pink.shade100, width: 1),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(16),
+                    onTap: () => debugPrint(skills[index]),
+                    child: Center(
+                      child: Text(
+                        skills[index],
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.pinkAccent,
                         ),
                       ),
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
+            const SizedBox(height: 40),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.pinkAccent,
-
+        elevation: 6,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         onPressed: () {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(const SnackBar(content: Text("Assignment Completed")));
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Assignment Completed! "),
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.pinkAccent,
+            ),
+          );
         },
-
-        child:Icon(Icons.check,color: Colors.white,),
-        
+        child: const Icon(Icons.check, color: Colors.white, size: 28),
       ),
-      
+    );
+  }
+
+  // Extracted Helper Method for Clean Stat Cards
+  Widget _buildStatCard(String title, String value, IconData icon, Color color) {
+    return Expanded(
+      child: Card(
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: Colors.grey.shade100, width: 1),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 4),
+          child: Column(
+            children: [
+              Icon(icon, size: 28, color: color),
+              const SizedBox(height: 8),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  title,
+                  style: const TextStyle(fontSize: 11, color: Colors.black54, fontWeight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                value,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
