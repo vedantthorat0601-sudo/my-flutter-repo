@@ -8,12 +8,12 @@ class StudentDashboardPage extends StatefulWidget {
 }
 
 final List<Map<String, String>> subjects = [
-      {"subject": "Mobile App Development", "teacher": "Prof. Alan Turing"},
-      {"subject": "Cloud Computing", "teacher": "Dr. Grace Hopper"},
-      {"subject": "UI/UX Design", "teacher": "Prof. Dieter Rams"},
-       {"subject": "UI/UX Design", "teacher": "Mr. A.P. Roy"},
-        {"subject": "UI/UX Design", "teacher": "Prof. John Wich"},
-    ];
+  {"subject": "Mobile App Development", "teacher": "Prof. Alan Turing"},
+  {"subject": "Cloud Computing", "teacher": "Dr. Grace Hopper"},
+  {"subject": "UI/UX Design", "teacher": "Prof. Dieter Rams"},
+  {"subject": "UI/UX Design", "teacher": "Mr. A.P. Roy"},
+  {"subject": "UI/UX Design", "teacher": "Prof. John Wich"},
+];
 final List<String> skills = [
   "Flutter",
   "Dart",
@@ -32,7 +32,6 @@ class _HomePageState extends State<StudentDashboardPage> {
       backgroundColor: Colors.white,
 
       appBar: AppBar(
-    
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(
@@ -67,7 +66,6 @@ class _HomePageState extends State<StudentDashboardPage> {
 
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
-        
         ),
       ),
       body: SingleChildScrollView(
@@ -86,9 +84,9 @@ class _HomePageState extends State<StudentDashboardPage> {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.pinkAccent,
-                    blurRadius: 30,
+                    blurRadius: 55,
                     blurStyle: BlurStyle.normal,
-                    offset: const Offset(0, 8),
+                    offset: const Offset(0, 0),
                   ),
                 ],
               ),
@@ -113,14 +111,14 @@ class _HomePageState extends State<StudentDashboardPage> {
               margin: const EdgeInsets.only(bottom: 24),
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: Colors.pinkAccent,
+                color: Colors.white12,
                 borderRadius: BorderRadius.circular(24),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.pinkAccent,
-                    blurRadius: 25,
-                    blurStyle: BlurStyle.normal,
-                    offset: const Offset(0, 12),
+                    blurRadius: 55,
+                    blurStyle: BlurStyle.inner,
+                    offset: const Offset(0, 0),
                   ),
                 ],
               ),
@@ -130,10 +128,12 @@ class _HomePageState extends State<StudentDashboardPage> {
                 children: [
                   CircleAvatar(
                     radius: 50,
-                    backgroundColor: Colors.white,
+                    backgroundColor: Colors.green,
                     child: CircleAvatar(
                       radius: 47,
-                      backgroundImage: const AssetImage("assets/icons/pngwing.com.png"),
+                      backgroundImage: const AssetImage(
+                        "assets/icons/pngwing.com.png",
+                      ),
                       backgroundColor: Colors.pink.shade100,
                     ),
                   ),
@@ -167,23 +167,54 @@ class _HomePageState extends State<StudentDashboardPage> {
             // 3. Stats Grid (Row of Cards)
             Row(
               children: [
-                _buildStatCard("Assignments", "10", Icons.assignment, Colors.blue),
+                _buildStatCard(
+                  "Assignments",
+                  "10",
+                  Icons.assignment,
+                  Colors.blue,
+                ),
                 const SizedBox(width: 8),
-                _buildStatCard("Attendance", "95%", Icons.calendar_month, Colors.green),
+                _buildStatCard(
+                  "Attendance",
+                  "95%",
+                  Icons.calendar_month,
+                  Colors.green,
+                ),
                 const SizedBox(width: 8),
-                _buildStatCard("My Projects", "5", Icons.folder_copy, Colors.orange),
+                _buildStatCard(
+                  "My Projects",
+                  "5",
+                  Icons.folder_copy,
+                  Colors.orange,
+                ),
                 const SizedBox(width: 8),
                 _buildStatCard("My Marks", "89%", Icons.star, Colors.purple),
               ],
             ),
             const SizedBox(height: 28),
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(bottom: 20),
+              child: ElevatedButton(
+                
+                onPressed: () {
+                  print("update request");
+                },
+                child: const Text("new version available!"),
+                
+              ),
+            ),
 
             // 4. Subjects Section
             const Padding(
               padding: EdgeInsets.only(left: 4, bottom: 12),
               child: Text(
                 "My Subjects",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black87),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
               ),
             ),
             ListView.builder(
@@ -249,14 +280,18 @@ class _HomePageState extends State<StudentDashboardPage> {
                 );
               },
             ),
-            const SizedBox(height: 20),
+            
 
             // 5. Skills Section
             const Padding(
               padding: EdgeInsets.only(left: 4, bottom: 12),
               child: Text(
                 "My Skills",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black87),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
               ),
             ),
             GridView.builder(
@@ -316,7 +351,12 @@ class _HomePageState extends State<StudentDashboardPage> {
   }
 
   // Extracted Helper Method for Clean Stat Cards
-  Widget _buildStatCard(String title, String value, IconData icon, Color color) {
+  Widget _buildStatCard(
+    String title,
+    String value,
+    IconData icon,
+    Color color,
+  ) {
     return Expanded(
       child: Card(
         elevation: 0,
@@ -334,7 +374,11 @@ class _HomePageState extends State<StudentDashboardPage> {
                 fit: BoxFit.scaleDown,
                 child: Text(
                   title,
-                  style: const TextStyle(fontSize: 11, color: Colors.black54, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                    fontSize: 11,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
               const SizedBox(height: 4),
